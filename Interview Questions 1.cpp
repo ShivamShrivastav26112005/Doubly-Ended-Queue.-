@@ -169,3 +169,71 @@ int main() {
 }
 
 
+
+
+
+
+
+Q3. Validate a Palindrome Using Deque -: 
+  
+  
+Problem:
+Check if a given string is a palindrome by using a deque. The string may contain 
+alphanumeric characters and can ignore case sensitivity and non-alphanumeric characters.
+
+  
+Example Input:
+"A man, a plan, a canal: Panama"
+Output:
+true
+
+  
+Key Concept:
+Use the deque to compare characters from the front and back iteratively to validate the palindrome.
+
+
+
+#include <iostream>
+#include <deque>
+#include <cctype>
+using namespace std;
+
+bool isPalindrome(string s) {
+    deque<char> dq;
+
+    for (char c : s) {
+        if (isalnum(c)) {
+            dq.push_back(tolower(c));
+        }
+    }
+
+    while (dq.size() > 1) {
+        if (dq.front() != dq.back()) {
+            return false;
+        }
+        dq.pop_front();
+        dq.pop_back();
+    }
+
+    return true;
+}
+
+int main() {
+    string s = "A man, a plan, a canal: Panama";
+    if (isPalindrome(s)) {
+        cout << "True";
+    } else {
+        cout << "False";
+    }
+    return 0;
+}
+
+
+
+These implementations cover:
+
+Efficient sliding window maximum using deque.
+Manual implementation of deque using a doubly linked list.
+Palindrome validation using deque for comparison.
+
+
